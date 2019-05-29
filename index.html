@@ -1,49 +1,435 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-		<title>reveal.js</title>
+    <title>reveal.js</title>
 
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/theme/league.css" />
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css" />
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "css/print/pdf.css"
+        : "css/print/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          Intro to
+          <img src="./img/wasm-logo.svg" />
+          or WASM
+        </section>
 
-		<script src="js/reveal.js"></script>
+        <section>
+          <section>WASM 🔥 in essence</section>
+          <section>
+            <h2>What is Web Assembly?</h2>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true }
-				]
-			});
-		</script>
-	</body>
+            <ul>
+              <li>binary instruction format</li>
+              <li>Portable target for compilation</li>
+              <li>Developed as a w3c web standard</li>
+              <li>
+                Code format designed for efficient execution and compact
+                representation
+              </li>
+              <li>Fast, Safe and Well defined</li>
+              <li>Hardware, Language and Platform independant</li>
+            </ul>
+
+            <aside class="notes">
+              WebAssembly (abbreviated Wasm) is a binary instruction format for
+              a stack-based virtual machine. Wasm is designed as a portable
+              target for compilation of high-level languages like C/C++/Rust,
+              enabling deployment on the web for client and server applications.
+              Fast, safe, and portable semantics:
+              <ul>
+                <li>
+                  Fast: executes with near native code performance, taking
+                  advantage of capabilities common to all contemporary hardware.
+                </li>
+                <li>
+                  Safe: code is validated and executes in a memory-safe,
+                  sandboxed environment preventing data corruption or security
+                  breaches.
+                </li>
+                <li>
+                  Well-defined: fully and precisely defines valid programs and
+                  their behavior in a way that is easy to reason about
+                  informally and formally.
+                </li>
+                <li>
+                  Hardware-independent: can be compiled on all modern
+                  architectures, desktop or mobile devices and embedded systems
+                  alike.
+                </li>
+                <li>
+                  Language-independent: does not privilege any particular
+                  language, programming model, or object model.
+                </li>
+                <li>
+                  Platform-independent: can be embedded in browsers, run as a
+                  stand-alone VM, or integrated in other environments.
+                </li>
+                <li>
+                  Open: programs can interoperate with their environment in a
+                  simple and universal manner.
+                </li>
+                <li>
+                  Stack based machine: Dalvik VM for Android, register based VM
+                </li>
+              </ul>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Why webassembly?</h2>
+
+            <ul>
+              <li>Backend language on the frontend</li>
+              <li>Native performance in the browser</li>
+              <li>Choose your libraries (safety, speed...)</li>
+            </ul>
+
+            <aside class="notes">
+              <ul>
+                Ever dreamt of using your favorite backend language to write
+                your frontend?
+              </ul>
+              <ul>
+                Ever dreamt of running software near almost deterministic native
+                performance in the browser?
+              </ul>
+              <ul>
+                Ever dreamt of SAFELY re-using your favorite libraries in the
+                browser?
+              </ul>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Is it new?</h2>
+            <ul>
+              <li>WebAssembly has shipped in the 4 major browser engines.</li>
+              <li>Since 2017!</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Why not *?</h2>
+            <ul>
+              <li>Why not use JVM?</li>
+              <li>
+                Why not use existing IR like LLVM IR?
+              </li>
+              <li>Compact</li>
+              <li>Modular</li>
+              <li>Efficient</li>
+              <li>Streamable</li>
+              <li>Parallelizable</li>
+              <li>Portable</li>
+            </ul>
+
+            <aside class="notes">
+              <ul>
+                <li>
+                  https://github.com/WebAssembly/design/issues/960 JVM? In
+                  general, Java browser apps or "applets" were a bad experience
+                  for users due to loading time, awkward and nonstandard UI
+                  elements, and also being complete separate from the web page
+                  and not being able to interact with the DOM. Plugins like
+                  Flash offered a far better experience. But the browser needed
+                  its own native virtual machine and scripting language. So
+                  JavaScript was born.
+                </li>
+                <li>
+                  LLVM IR? compact, but not good for streaming, modularization
+                  Efficient and portable representation:
+                  <ul>
+                    <li>
+                      Compact: has a binary format that is fast to transmit by
+                      being smaller than typical text or native code formats. -
+                      Modular: programs can be split up in smaller parts that
+                      can be transmitted, cached, and consumed separately.
+                    </li>
+                    <li>
+                      Efficient: can be decoded, validated, and compiled in a
+                      fast single pass, equally with either just-in-time - JIT -
+                      or ahead-of-time - AOT - compilation.
+                    </li>
+                    <li>
+                      Streamable: allows decoding, validation, and compilation
+                      to begin as soon as possible, before all data has been
+                      seen.
+                    </li>
+                    <li>
+                      Parallelizable: allows decoding, validation, and
+                      compilation to be split into many independent parallel
+                      tasks.
+                    </li>
+                    <li>
+                      Portable: makes no architectural assumptions that are not
+                      broadly supported across modernhardware.
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section>WASM 🔋in the stack</section>
+          <section>
+            <h2>LLVM in short</h2>
+            <img src="./img/llvm-backend.png" />
+          </section>
+          <section>
+            <h2>WASM as a backend for LLVM</h2>
+            <img src="./img/llvm-backend-wasm.png" />
+
+            <aside class="notes">
+              Where does WebAssembly fit into this picture? You might think it
+              is just another one of the target assembly languages. That is kind
+              of true, except that each one of those languages (x86, ARM )
+              corresponds to a particular machine architecture. When you’re
+              delivering code to be executed on the user’s machine across the
+              web, you don’t know what your target architecture the code will be
+              running on. So WebAssembly is a little bit different than other
+              kinds of assembly. It’s a machine language for a conceptual
+              machine, not an actual, physical machine. Because of this,
+              WebAssembly instructions are sometimes called virtual
+              instructions. They have a much more direct mapping to machine code
+              than JavaScript source code. They represent a sort of intersection
+              of what can be done efficiently across common popular hardware.
+              But they aren’t direct mappings to the particular machine code of
+              one specific hardware. Same diagram as above with WebAssembly
+              inserted between the intermediate representation and assembly The
+              browser downloads the WebAssembly. Then, it can make the short hop
+              from WebAssembly to that target machine’s assembly code. (Credits
+              to Lin Clark:
+              https://hacks.mozilla.org/2017/02/creating-and-working-with-webassembly-modules/)
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section>WASM ⌨️ in code</section>
+          <section>
+            <h2>WASM and WAT, What??</h2>
+            <ul>
+              <li>
+                Binary and text format - Can turn one into another:
+                <a
+                  href="https://webassembly.github.io/wabt/demo/wat2wasm/"
+                  target="_blank"
+                  >wat2wasm</a
+                >
+                <a
+                  href="https://webassembly.github.io/wabt/demo/wasm2wat/"
+                  target="_blank"
+                  >wasm2wat</a
+                >
+              </li>
+              <li>And allows live debugging of webassembly</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Handwriting wasm</h2>
+            <ul>
+              <li>Multiple languages</li>
+              <li>
+                <a href="https://webassembly.studio/" target="_blank"
+                  >Online editor</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://webassembly.studio/?f=evo6i87mzb9"
+                  target="_blank"
+                  >Let's edit</a
+                >
+              </li>
+              <li>WASM func from JS, JS func from WASM</li>
+              <li>
+                Shared simple sandboxed low level byte memory (logger demo)
+              </li>
+            </ul>
+
+            <aside class="notes">
+              Spoiler: not only by hand Simple add, sub:
+              https://webassembly.studio/?f=cogflirmv9m (import "js" "mem"
+              (memory 1)) The 1 indicates that the imported memory must have at
+              least 1 page of memory (WebAssembly defines a page to be 64KB.) So
+              let's see a complete module that prints the string “Hi”. In a
+              normal compiled C program, you’d call a function to allocate some
+              memory for the string, but since we’re just writing our own
+              assembly here and we own the entire linear memory, we can just
+              write the string contents into global memory using a data section.
+              Data sections allow a string of bytes to be written at a given
+              offset at instantiation time and are similar to the .data sections
+              in native executable formats.
+            </aside>
+          </section>
+          <section>
+            <h2>
+              <a href="https://webassembly.studio/?f=ab4po5v12b" target="_blank"
+                >Online WebAssembly - for real</a
+              >
+            </h2>
+
+            <aside class="notes">
+              Mozilla has pushed a lot for web assembly, and it is obviously the
+              one language with the best tooling today to do wasm. I won't go
+              into rust details here, all you need to know is that it's not GC,
+              it's safe by design and it's fast, very fast.
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section>WASM 🍻 in practice</section>
+          <section>
+            <h2>Give me my java!</h2>
+            <ul>
+              <li>Yes, you can BUT</li>
+              <li>GC languages</li>
+            </ul>
+
+            <aside class="notes">
+              The GC is not yet implemented for wasm, and you then need to
+              package your own GC in all of your wasm files. For Golang, for ex,
+              it's 2MB minimum for a simple hello world. The GC is coming soon
+              to wasm. I'll talk about it later on the roadmap.
+            </aside>
+          </section>
+          <section>
+            <h2>Current projects using wasm?</h2>
+            <ul>
+              <li>
+                <a
+                  href="http://wasm.continuation-labs.com/d3demo"
+                  target="_blank"
+                  >Games</a
+                >, recompiled in wasm!
+              </li>
+              <li>
+                JS modules replacements with better efficiency and security
+              </li>
+              <li>
+                Frontend framework replacement (<a
+                  href="https://blazor-demo.github.io/Counter"
+                  target="_blank"
+                  >blazor</a
+                >, yew...)
+              </li>
+              <li>Blockchain (Polkadot, Eth2.0)</li>
+            </ul>
+          </section>
+          <section>
+            <img src="./img/roadmap.png" />
+
+            <aside class="notes">
+              https://hacks.mozilla.org/2018/10/webassemblys-post-mvp-future/
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section><s>WASM</s> 🍎 one more thing...</section>
+          <section>
+            <h2>WASI</h2>
+
+            <img src="./img/twit.jpg" />
+          </section>
+          <section>
+            <h2>What's WASI about?</h2>
+            <ul>
+              <li>Running webassembly outside the browser!</li>
+              <li>
+                Edge computing, iot, mobile, serverless, microservices,
+                packaging...
+              </li>
+              <li>
+                Compiling any language with a LLVM backend to wasi (nginx,
+                sqlite...)
+              </li>
+            </ul>
+
+            <aside class="notes">
+              https://hacks.mozilla.org/2019/03/standardizing-wasi-a-webassembly-system-interface/
+            </aside>
+          </section>
+          <section>
+            <h2>Existing WASM/WASI runtimes</h2>
+            <ul>
+              <li>wasmer</li>
+              <li>lucet (fastly)</li>
+              <li>
+                wrangler (cloudflare)
+              </li>
+              <li>wamr (intel)</li>
+              <li>
+                Linux kernel experimentation (better perf than its equivalent
+                native in user space)
+              </li>
+              <li>Transpilers to .NET Core and JVM bytecode...</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Demo</h2>
+            <ul>
+              <li>
+                <a href="https://wasm.fastlylabs.com/" target="_blank"
+                  >terrarium by fastly</a
+                >
+              </li>
+              <li>wasmer + wapm</li>
+            </ul>
+            <aside class="notes">
+              wapm run cowsay "hello voxxed days 2019" | wapm run lolcat
+            </aside>
+          </section>
+          <section>
+            <h2>A future?</h2>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeWFMn1k8WTr7G4D0lBUf49Sbl-XjUwoXisv90RHvWGMVwYrA/viewform"
+              ><img src="./img/feedback.png"
+            /></a>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        dependencies: [
+          { src: "plugin/markdown/marked.js" },
+          { src: "plugin/markdown/markdown.js" },
+          { src: "plugin/notes/notes.js", async: true },
+          { src: "plugin/highlight/highlight.js", async: true }
+        ]
+      });
+    </script>
+  </body>
 </html>
