@@ -30,12 +30,14 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <section>
-          Intro to
-          <img data-src="./img/wasm-logo.svg" />
-          or WASM
+        <section
+          data-background-color="#000"
+          data-background-image="./img/wasm-logo.svg"
+          data-background-size="30%"
+          data-background-position="50% 80%"
+        >
+          <h3>Getting to know</h3>
         </section>
-
         <section>
           <section>WASM 🔥 in essence</section>
           <section>
@@ -306,11 +308,6 @@
           <section>WASM 🍻 in practice</section>
           <section>
             <h2>Give me my java!</h2>
-            <ul>
-              <li>Yes, you can BUT</li>
-              <li>GC languages</li>
-            </ul>
-
             <aside class="notes">
               The GC is not yet implemented for wasm, and you then need to
               package your own GC in all of your wasm files. For Golang, for ex,
@@ -322,13 +319,6 @@
             <h2>Current projects using wasm?</h2>
             <ul>
               <li>
-                <a
-                  href="http://wasm.continuation-labs.com/d3demo"
-                  target="_blank"
-                  >Games</a
-                >, recompiled in wasm!
-              </li>
-              <li>
                 JS modules replacements with better efficiency and security
               </li>
               <li>
@@ -339,6 +329,13 @@
                 >, yew...)
               </li>
               <li>Blockchain (Polkadot, Eth2.0)</li>
+              <li>
+                <a
+                  href="http://wasm.continuation-labs.com/d3demo"
+                  target="_blank"
+                  >Games</a
+                >, recompiled in wasm!
+              </li>
             </ul>
           </section>
           <section>
